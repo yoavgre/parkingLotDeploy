@@ -47,7 +47,7 @@ pip3 install fastapi uvicorn motor python-dotenv
 
 # Clone the FastAPI app from GitHub
 cd /home/ec2-user
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git clone https://github.com/yoavgre/parkingLotManager.git
 cd YOUR_REPO
 
 # Run FastAPI app
