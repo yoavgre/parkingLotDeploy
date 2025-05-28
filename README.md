@@ -27,7 +27,7 @@ It:
 ### 1. Clone this repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/parkingLotDeploy.git
+git clone https://github.com/yoavgre/parkingLotDeploy.git
 cd parkingLotDeploy
 ```
 
