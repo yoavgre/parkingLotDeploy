@@ -25,33 +25,28 @@ security_group = aws.ec2.SecurityGroup("fastapi-sg",
 
 # EC2 startup script
 user_data = """#!/bin/bash
-yum update -y
-yum install -y python3 git
+# Update and install required packages
+sudo yum update -y
+sudo yum install -y python3 git docker
 
-# Install MongoDB
-cat > /etc/yum.repos.d/mongodb-org-6.0.repo <<EOF
-[mongodb-org-6.0]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
-EOF
+# Start and enable Docker
+sudo systemctl start docker
+sudo systemctl enable docker
 
-yum install -y mongodb-org
-systemctl start mongod
-systemctl enable mongod
+# Run MongoDB in Docker
+sudo docker run -d --name mongodb -p 27017:27017 mongo:6
 
-# Install Python dependencies
+# Install pip and Python dependencies
+sudo python3 -m ensurepip --upgrade
 pip3 install fastapi uvicorn motor python-dotenv
 
 # Clone the FastAPI app from GitHub
 cd /home/ec2-user
 git clone https://github.com/yoavgre/parkingLotManager.git
-cd YOUR_REPO
+cd parkingLotManager
 
-# Run FastAPI app
-nohup uvicorn main:app --host 0.0.0.0 --port 80 &
+# Run FastAPI app (assumes app/main.py contains `app = FastAPI()`)
+nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 &
 """
 
 # Create EC2 instance
