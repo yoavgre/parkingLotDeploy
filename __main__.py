@@ -55,7 +55,7 @@ instance = aws.ec2.Instance("fastapi-instance",
     ami=ami.id,
     vpc_security_group_ids=[security_group.id],
     user_data=user_data,
-    tags={"Name": "FastAPIApp"}
+    tags={"Name": "ParkingLotManager"}
 )
 
 # Output the public IP and URL
