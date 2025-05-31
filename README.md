@@ -72,8 +72,7 @@ The AWS user you're using should have either:
 - **Admin permissions** (`AdministratorAccess`)  
   **or**  
 - The following specific permissions:  
-  - `ec2:*` – To create and manage EC2 instances, security groups, and other EC2 resources  
-  - `sts:GetCallerIdentity` – To validate the credentials
+  - `AmazonEC2FullAccess` – To create and manage EC2 instances, security groups, and other EC2 resources  
 
 ---
 
