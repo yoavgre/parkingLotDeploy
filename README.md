@@ -1,6 +1,7 @@
 # 🚀 FastAPI + MongoDB Deployment with Pulumi (AWS EC2)
 
 This project uses [Pulumi](https://www.pulumi.com/) to deploy a fully operational **FastAPI + MongoDB** backend onto an AWS EC2 instance.
+
 It works in conjunction with the FastAPI app located in this repository:
 👉 yoavgre/parkingLotManager
 
