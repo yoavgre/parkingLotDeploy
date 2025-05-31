@@ -47,7 +47,7 @@ git clone https://github.com/yoavgre/parkingLotManager.git
 cd parkingLotManager
 
 # Run FastAPI app (assumes app/main.py contains `app = FastAPI()`)
-nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 &
+sudo nohup /usr/local/bin/uvicorn app.main:app --host 0.0.0.0 --port 80 &
 """
 
 # Create EC2 instance
