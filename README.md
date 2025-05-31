@@ -109,6 +109,7 @@ Outputs:
 
 To access the deployed API, open the URL provided.
 This will open the FastAPI Swagger UI where you can test and explore the API endpoints.
+Port 80 requires sudo, and may not work if another service is already using it. If not working, switch to port 8000.
 
 ⚠️ **Note**: If accessing the URL **without port `:8000`** does not work, it is likely because the FastAPI app is not running on port 80 (which requires root privileges).  
 Unless configured otherwise (e.g. via `sudo` or a reverse proxy), use port `8000` in the URL.
