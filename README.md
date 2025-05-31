@@ -66,6 +66,14 @@ Enter your:
 * **AWS Secret Access Key**
 * **Default region** (e.g. `us-east-1`)
 
+The AWS user you're using should have either:
+
+- **Admin permissions** (`AdministratorAccess`)  
+  **or**  
+- The following specific permissions:  
+  - `ec2:*` – To create and manage EC2 instances, security groups, and other EC2 resources  
+  - `sts:GetCallerIdentity` – To validate the credentials
+
 ---
 
 ## 🚀 Deploy the FastAPI App to AWS
