@@ -110,12 +110,19 @@ This will:
 
 ## 🌍 Access the Running App
 
-✅ After Deployment
-After running pulumi up, you will see output like the following:
+✅ **After Deployment**
 
+⏱️ It may take around **30 seconds** for the deployed URL to become active after `pulumi up` completes.
+
+You will see output like:
+```
 Outputs:
     public_ip: "3.91.120.25"
     url      : "http://ec2-3-91-120-25.compute-1.amazonaws.com"
+    ui-url   : "http://ec2-3-91-120-25.compute-1.amazonaws.com/docs"
+```
 
-To access the deployed API, open the URL provided.
-the URL with /docs will open FastAPI Swagger UI where you can test and explore the API endpoints.
+🔗 To access the deployed API:
+
+- Open the value of `url` in your browser to reach the base FastAPI app.
+- Open the value of `ui-url` (ending with `/docs`) to view the **FastAPI Swagger UI**, where you can interactively test and explore the API endpoints.
