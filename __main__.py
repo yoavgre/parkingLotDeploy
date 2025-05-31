@@ -1,7 +1,7 @@
 import pulumi
 import pulumi_aws as aws
 
-# Get the latest Amazon Linux 2 AMI
+# Get the latest Amazon Linux
 ami = aws.ec2.get_ami(
     most_recent=True,
     owners=["amazon"],
@@ -17,7 +17,7 @@ security_group = aws.ec2.SecurityGroup("fastapi-sg",
     ingress=[
         {"protocol": "tcp", "from_port": 22, "to_port": 22, "cidr_blocks": ["0.0.0.0/0"]},
         {"protocol": "tcp", "from_port": 8000, "to_port": 8000, "cidr_blocks": ["0.0.0.0/0"]},
-        {"protocol": "tcp", "from_port": 80, "to_port": 80, "cidr_blocks": ["0.0.0.0/0"]},  # HTTP
+        {"protocol": "tcp", "from_port": 80, "to_port": 80, "cidr_blocks": ["0.0.0.0/0"]},
     ],
     egress=[
         {"protocol": "-1", "from_port": 0, "to_port": 0, "cidr_blocks": ["0.0.0.0/0"]}
@@ -50,7 +50,7 @@ cd parkingLotManager
 sudo nohup /usr/local/bin/uvicorn app.main:app --host 0.0.0.0 --port 80 &
 """
 
-# Create EC2 instance
+# Create the EC2 instance
 instance = aws.ec2.Instance("fastapi-instance",
     instance_type="t2.micro",
     ami=ami.id,
@@ -62,3 +62,4 @@ instance = aws.ec2.Instance("fastapi-instance",
 # Output the public IP and URL
 pulumi.export("public_ip", instance.public_ip)
 pulumi.export("url", pulumi.Output.concat("http://", instance.public_dns))
+pulumi.export("swagger_ui", pulumi.Output.concat("http://", instance.public_dns, "/docs"))
