@@ -100,14 +100,16 @@ This will:
 
 ## 🌍 Access the Running App
 
-After deployment, Pulumi outputs something like:
+✅ After Deployment
+After running pulumi up, you will see output like the following:
 
-```
 Outputs:
     public_ip: "3.91.120.25"
     url      : "http://ec2-3-91-120-25.compute-1.amazonaws.com"
-```
 
-Open the **url** in your browser and append `/docs` for Swagger UI to see the live API! 🎉
+To access the deployed API, open the URL provided with the :8000/docs suffix.
+For example:
 
----
+http://ec2-3-91-120-25.compute-1.amazonaws.com:8000/docs
+
+This will open the FastAPI Swagger UI where you can test and explore the API endpoints.
